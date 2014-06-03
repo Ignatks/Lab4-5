@@ -85,8 +85,7 @@ static struct attribute * calc_attributes[] = {
 };
 
 
-static ssize_t default_show(struct kobject *kobj, struct attribute *attr,
-		char *buf)
+static ssize_t default_show(struct kobject *kobj, struct attribute *attr, char *buf)
 {
 	if (!strcmp(attr->name, RESULT)) {
 		long res = calculate();
@@ -97,8 +96,7 @@ static ssize_t default_show(struct kobject *kobj, struct attribute *attr,
 	}
 }
 
-static ssize_t default_store(struct kobject *kobj, struct attribute *attr,
-		const char *buf, size_t len)
+static ssize_t default_store(struct kobject *kobj, struct attribute *attr, const char *buf, size_t len)
 {
 	if(len > WRITE_SIZE) {
 		len = WRITE_SIZE;
@@ -236,8 +234,7 @@ int write_operation(struct file *file, const char *buf, unsigned long count, voi
 /*
  * result read handler
  */
-int read_result(char *buffer, char **buffer_location,
-				  off_t offset, int buffer_length, int *eof, void *data)
+int read_result(char *buffer, char **buffer_location, off_t offset, int buffer_length, int *eof, void *data)
 {
 	long res = calculate();
 
